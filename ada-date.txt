@@ -1,0 +1,5 @@
+2011 02 11 100 salary bankcard
+2011 03 12 -20 food cash
+2011 03 15 120 salary cash
+2011 03 20 -10 food cash
+2011 04 13 -10 game creditcard
