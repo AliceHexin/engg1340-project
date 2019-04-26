@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <cstdlib>
 #include <sstream>
 
 using namespace std;
@@ -14,11 +13,11 @@ void report(string name)
   double income=0,expense=0;
   double temp;
   int year,month,y,m,d;
-  ifstream fin,fin1,fin2,fin3;
+  ifstream fin,fin1;
 
-  cout<<"which year"<<endl;//input the year
+  cout<<"please input the year"<<endl;//input the year
   cin>>year;
-  cout<<"which month"<<endl;//input the month
+  cout<<"please input the month"<<endl;//input the month
   cin>>month;
 
   fin.open(name+"-date.txt");//open name+date file
@@ -43,9 +42,9 @@ void report(string name)
 
   }
   amount=income+expense;
-  cout<<"income="<<income<<endl;//show income
-  cout<<"expense="<<expense<<endl;//expense
-  cout<<"amount="<<amount<<endl;//amount
+  cout<<"monthly income="<<income<<endl;//show income
+  cout<<"monthly expense="<<expense<<endl;//expense
+  cout<<"monthly amount="<<amount<<endl;//amount
   fin.close();//close name-date.txt
 
   int subamount=0;//use his variable to save amout of different types record
@@ -70,7 +69,6 @@ void report(string name)
       if(m==month&&y==year)
       {
             subamount+=temp;
-            cout<<temp<<endl;
       }
       stream1.str("");
       stream1.clear();
@@ -96,12 +94,9 @@ void report(string name)
       cout<<subamount*100/expense<<"%"<<endl;
     }
     subamount=0;
+    cout<<"input the type you would like to know or 'e' to exit"<<endl;
     cin>>type_input;
   }
-
-
-
-
   return;
 
 }

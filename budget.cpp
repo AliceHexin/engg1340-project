@@ -2,18 +2,18 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include <stdio.h>
 #include <cstdio>
+#include <stdio.h>
 using namespace std;
+//todo 将record放入file
 
-void budget(string name)
+void budget(string name,int input)//when input==1 when user set budget, otherwise input==0
 {
   string line,type,account;
   string word,a,b,c;
-  double amount;
   double income=0,expense=0;
   double temp;
-  int year,month,y,m,d;
+  int y,m,d;
   ifstream fin;
   fin.open(name+"-date.txt");//open name+date file
   if (fin.fail())
@@ -34,8 +34,6 @@ void budget(string name)
   }
   fin.close();
 
-  amount=income+expense;
-
   ifstream fin1;
   ofstream fout,fout1;
   double origin=0,budget=0;
@@ -46,15 +44,16 @@ void budget(string name)
 
   fin1>>budget>>origin;
 
-  cout<<origin<<" "<<expense<<" "<<budget<<endl;
+  cout<<origin<<" "<<expense<<" "<<budget<<endl;// print out the amount when budget is seted current amount and budget
 
-  if(origin==0&&budget==0)//at the begining
+  if(input==1)//at the begining
   {
     fin1.close();
     fout.open(filename);
     cout<<"set budget"<<endl;
     cin>>budget;
     origin=expense;
+
     fout<<budget<<" "<<origin;
 
     fout.close();
@@ -65,12 +64,12 @@ void budget(string name)
     fin1>>budget>>origin;
     fin1.close();
 
-    if ((expense-origin)>budget)
+    if ((expense-origin)>budget&&budget>0)
     {
       origin=expense;
-      cout<<"budget finish do you want to set budget again."<<endl;
-      cout<<"enter budget"<<endl;
-      cin>>budget;
+      cout<<"***budget alert：expense achieved "<<budget<<"now***"<<endl;
+      budget=-1;
+
       origin=expense;
       fout1.open(name+"-budget.txt");
       fout1<<budget<<" "<<origin;
@@ -79,15 +78,13 @@ void budget(string name)
     }
 
   }
-
-
   return ;//haven satisfied the budget
 }
 
 int main()
 {
   string name="ada";//test case//
-  budget(name);
+  budget(name,0);
 
   return 0;
 }

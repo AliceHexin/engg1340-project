@@ -6,7 +6,8 @@
 #include <stdio.h>
 using namespace std;
 
-void wonderlist(string name)
+//todo: could set severl item and store them in a file
+void wonderlist(string name,int input)//when input==1 means user insert wonder item
 {
   string line,type,account;
   string word,a,b,c;
@@ -29,7 +30,7 @@ void wonderlist(string name)
     stream>>y>>m>>d>>temp>>type>>account;//temp is money
 
     if(temp<0)
-      expense-=temp;//calculate expense
+      expense+=temp;//calculate expense
     if(temp>0)
       income+=temp;//calculate income
   }
@@ -38,23 +39,17 @@ void wonderlist(string name)
   amount=income+expense;
 
   ifstream fin1;
-  ofstream fout,fout1;
+  ofstream fout,fout1,fout2;
   double origin=0,money=0;
   string filename=name+"-wonderlist.txt";
   string item="";
 
 
-  fin1.open(filename);
-  if(fin1.fail())
-    exit(1);
 
-  fin1>>item>>amount;
-  cout<<item<<" "<<money<<endl;
-
-  if(item=="")//at the begining
+  if(input==1)//at the begining
   {
-    fin1.close();
-    fout.open(filename);
+
+    fout.open(filename,ios::app);
     cout<<"set item"<<endl;
     cin>>item;
     cout<<"set amount"<<endl;
@@ -65,24 +60,34 @@ void wonderlist(string name)
 
   else
   {
-    fin1>>item>>money;
-    fin1.close();
-
-    if (amount>money)
+    fin1.open(filename);
+    if(fin1.fail())
     {
-
-      cout<<item+"finish do you want to set budget again."<<endl;
-      cout<<"enter budget"<<endl;
-      cin>>item;
-      cin>>money;
-
-      fout1.open(filename);
-      fout1<<item<<" "<<money;
-      fout1.close();
+      cout<<"open fail"<<endl;
+      return;
     }
+
+
+    fout2.open("temporary.txt",ios::app);//creat a new file to save records
+    while(fin1>>item>>money)
+    {
+      //cout<<item<<" "<<money<<endl;//show item and money
+      if(amount>money)//when target is achieved
+      {
+        //cout<<amount<<endl;
+        cout<<"wonderlist: "+item+" is now available!"<<endl;
+      }
+      else
+      {
+        fout2<<item<<" "<<money<<endl;
+      }
+    }
+
+    fin1.close();
+    fout2.close();
+    remove( filename.c_str() );
+    rename("temporary.txt",filename.c_str());
   }
-
-
 
 }
 
@@ -90,6 +95,6 @@ int main()
 {
 
   string name="ada";//test case//
-  wonderlist(name);
+  wonderlist(name,0);
   return 0;
 }
