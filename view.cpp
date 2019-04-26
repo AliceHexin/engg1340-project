@@ -23,15 +23,7 @@ void view(string name)
     cout<<"open fail"<<endl;// check if file is opened successfully
     return;
   }
-  int num;
 
-  class Record
-   {
-
-    string name;
-    int number;
-  };
-  Record r;
   list<string> book;
   while(getline(fin, line))
   {
