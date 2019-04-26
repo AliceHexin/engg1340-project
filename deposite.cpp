@@ -4,22 +4,23 @@
 #include <sstream>
 
 using namespace std;
-string line,type,account;
-string word,a,b,c;
-double amount;
-double income=0,expense=0;
-double temp;
-int year,month,y,m,d;
-ifstream fin;
+
 
 //this function will return the sum of all historical record//
-int deposite(string name)
+double deposite(string name)
 {
+  string line,type,account;
+  string word,a,b,c;
+  double amount;
+  double income=0,expense=0;
+  double temp;
+  int y,m,d;
+  ifstream fin;
   fin.open(name+"-date.txt");//open name+date file
   if (fin.fail())
   {
     cout<<"open fail"<<endl;// check if file is opened successfully
-    return 0;
+    exit(1);
   }
 
   while(getline(fin, line))//read until the end of file
@@ -32,16 +33,15 @@ int deposite(string name)
     if(temp>0)
       income+=temp;//calculate income
   }
+  fin.close();
   amount=income+expense;
-  
-  return amount;
+  return amount;//return the sum of all record
 }
 
 int main()
 {
-  int a;
   string name="ada";//test case//
-  a=deposite(name);
-  cout<<a;
+  double a=deposite(name);
+  cout<<a<<endl;
   return 0;
 }

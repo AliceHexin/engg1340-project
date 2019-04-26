@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <cstdlib>
 #include <sstream>
+#include <list>
 
 using namespace std;
 
@@ -11,10 +11,11 @@ void view(string name)
   string type;
   string filename;
   string line;
-  std::cout << "/* please choose to view by date/food/game/salary  */" << '\n';// choose type
+  std::cout << "/* please choose to view by date/food/game/salary/income/expense */" << '\n';// choose type
   cin >> type;
   filename=name+"-"+type+".txt";//the filename to open
   ifstream fin;
+  ofstream fout;
   fin.open(filename);//open "filename" file
 
   if (fin.fail())
@@ -22,11 +23,25 @@ void view(string name)
     cout<<"open fail"<<endl;// check if file is opened successfully
     return;
   }
+  int num;
+
+  class Record
+   {
+
+    string name;
+    int number;
+  };
+  Record r;
+  list<string> book;
   while(getline(fin, line))
   {
-    cout<<line<<endl;
+    book.push_back(line);
   }
+  book.sort();
+  for (auto it = book.begin(); it != book.end(); ++it)
+        cout << *it<<endl;
   fin.close();
+
   return;
 }
 
