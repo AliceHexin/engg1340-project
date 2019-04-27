@@ -20,7 +20,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   if (fin.fail())
   {
     cout<<"open fail"<<endl;// check if file is opened successfully
-    return;
+    exit(1);
   }
 
   while(getline(fin, line))//read until the end of file
@@ -79,13 +79,14 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
     }
 
   }
-  return ;//haven satisfied the budget
+  //haven satisfied the budget
 }
 
-//int main()//
-//{//
-  //string name="ada"; //test case right here//
-  //budget(name,0);//
+int main()//
+{//
+  string name="ada"; //test case right here//
+  budget(name,0);//
+  cout<<"aaaaaa"<<endl;
 
-//  return 0;//
-//}//
+  return 0;//
+}//

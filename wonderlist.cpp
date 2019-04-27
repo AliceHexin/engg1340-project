@@ -22,7 +22,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
   if (fin.fail())
   {
     cout<<"open fail"<<endl;// check if file is opened successfully
-    return;
+    exit(1);
   }
 
   while(getline(fin, line))//read until the end of file
@@ -65,7 +65,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
     if(fin1.fail())
     {
       cout<<"open fail"<<endl;
-      return;
+      exit(1);
     }
 
 
@@ -92,10 +92,11 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
 
 }
 
-//int main()//
-//{//
+int main()//
+{//
 
-  //string name="ada";     //test case//
-  //wonderlist(name,0);//
-  //return 0;//
-//}//
+  string name="ada";     //test case//
+  wonderlist(name,0);//
+  cout<<"aaaa"<<endl;
+  return 0;//
+}//

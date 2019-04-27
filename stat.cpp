@@ -7,7 +7,7 @@ using namespace std;
 //input the year abd month in function//
 //report could show the percentage of different types and monthly income and expense and amount by month//
 //input the type and account you would like to view to see how much percent it takes in income/expense//
-void report(string name)
+void stat(string name)
 {
   string line,type,account;
   string word,a,b,c;
