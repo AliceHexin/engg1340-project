@@ -12,7 +12,7 @@ budget.o:budget.cpp
 	g++ -c $<
 wonderlist.o:wonderlist.cpp
 	g++ -c $<
-main.o:add.cpp deleted.cpp edit.cpp view.cpp stat.cpp budget.cpp wonderlist.cpp
+main.o:main.cpp add.cpp deleted.cpp edit.cpp view.cpp stat.cpp budget.cpp wonderlist.cpp
 	g++ -c $<
 project:main.o add.o deleted.o edit.o view.o stat.o budget.o wonderlist.o
 	g++ $^ -o $@
