@@ -6,11 +6,6 @@
 #include <stdio.h>
 using namespace std;
 
-bool check_file(string filename)
-{
-  std::ifstream ifile(filename.c_str());
-  return (bool)ifile;
-}
 // int input==1 will let user input the item and target number of money to file, up to 10 items(indeed could be much more )//
 //int input==0 will check if items' target numbers are satisfied, if yes, print alert, renew file//
 void wonderlist(string name,int input)//when input==1 means user insert wonder item
