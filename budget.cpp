@@ -95,5 +95,5 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
     }
 
   }
-  //haven satisfied the budget
+
 }
