@@ -4,7 +4,9 @@
 #include <sstream>
 
 using namespace std;
+//input the year abd month in function//
 //report could show the percentage of different types and monthly income and expense and amount by month//
+//input the type and account you would like to view to see how much percent it takes in income/expense//
 void report(string name)
 {
   string line,type,account;
@@ -20,7 +22,7 @@ void report(string name)
   cout<<"please input the month"<<endl;//input the month
   cin>>month;
 
-  fin.open(name+"-date.txt");//open name+date file
+  fin.open(name+"_date.txt");//open name+date file
   if (fin.fail())
   {
     cout<<"open fail"<<endl;// check if file is opened successfully
@@ -49,12 +51,12 @@ void report(string name)
 
   int subamount=0;//use his variable to save amout of different types record
   string type_input;//save the input type to compare with record's type
-  cout<<"input the type you would like to know or 'e' to exit"<<endl;
+  cout<<">>>input the type you would like to know or 'e' to exit"<<endl;
   cin>>type_input;
 
   while(type_input!="e")
   {
-    fin1.open(name+"-"+type_input+".txt");//open file
+    fin1.open(name+"_"+type_input+".txt");//open file
     if(fin1.fail())//dectect if file be opened successfully
     {
       cout<<"there is no such type"<<endl;
@@ -75,7 +77,7 @@ void report(string name)
     }
 
     fin1.close();//close file
-    cout<<"amount of"+type_input+"is"<<subamount<<" dollar"<<endl;//show amount of specific type
+    cout<<"amount of "+type_input+"is"<<subamount<<" dollar"<<endl;//show amount of specific type
 
     if(subamount==0)
     {
@@ -94,7 +96,8 @@ void report(string name)
       cout<<subamount*100/expense<<"%"<<endl;
     }
     subamount=0;
-    cout<<"input the type you would like to know or 'e' to exit"<<endl;
+    cout<<endl;
+    cout<<">>>input the type you would like to know or 'e' to exit"<<endl;
     cin>>type_input;
   }
   return;

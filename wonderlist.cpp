@@ -6,7 +6,8 @@
 #include <stdio.h>
 using namespace std;
 
-//todo: could set severl item and store them in a file
+// int input==1 will let user input the item and target number of money to file, up to 10 items(indeed could be much more )//
+//int input==0 will check if items' target numbers are satisfied, if yes, print alert, renew file//
 void wonderlist(string name,int input)//when input==1 means user insert wonder item
 {
   string line,type,account;
@@ -17,7 +18,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
   int year,month,y,m,d;
   ifstream fin;
 
-  fin.open(name+"-date.txt");//open name+date file
+  fin.open(name+"_date.txt");//open name+date file
   if (fin.fail())
   {
     cout<<"open fail"<<endl;// check if file is opened successfully
@@ -41,7 +42,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
   ifstream fin1;
   ofstream fout,fout1,fout2;
   double origin=0,money=0;
-  string filename=name+"-wonderlist.txt";
+  string filename=name+"_wonderlist.txt";
   string item="";
 
 
@@ -75,7 +76,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
       if(amount>money)//when target is achieved
       {
         //cout<<amount<<endl;
-        cout<<"wonderlist: "+item+" is now available!"<<endl;
+        cout<<"***wonderlist: "+item+" is now available!***"<<endl;
       }
       else
       {
@@ -94,7 +95,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
 int main()
 {
 
-  string name="ada";//test case//
+  string name="ada";     //test case//
   wonderlist(name,0);
   return 0;
 }

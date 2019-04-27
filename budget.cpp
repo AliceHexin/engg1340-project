@@ -5,8 +5,9 @@
 #include <cstdio>
 #include <stdio.h>
 using namespace std;
-//todo 将record放入file
 
+//int input==1 means user call it by command "budget", user could input 1 budget here, 0 when call function to check if budget is achieved) //
+//int input==0,means this function is just called to check if budget is achieved//
 void budget(string name,int input)//when input==1 when user set budget, otherwise input==0
 {
   string line,type,account;
@@ -15,7 +16,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   double temp;
   int y,m,d;
   ifstream fin;
-  fin.open(name+"-date.txt");//open name+date file
+  fin.open(name+"_date.txt");//open name+date file
   if (fin.fail())
   {
     cout<<"open fail"<<endl;// check if file is opened successfully
@@ -37,14 +38,14 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   ifstream fin1;
   ofstream fout,fout1;
   double origin=0,budget=0;
-  string filename=name+"-budget.txt";
+  string filename=name+"_budget.txt";
   fin1.open(filename);
   if(fin1.fail())
     exit(1);
 
   fin1>>budget>>origin;
 
-  cout<<origin<<" "<<expense<<" "<<budget<<endl;// print out the amount when budget is seted current amount and budget
+  //cout<<origin<<" "<<expense<<" "<<budget<<endl;// print out the amount when budget is seted current amount and budget
 
   if(input==1)//at the begining
   {
@@ -67,11 +68,11 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
     if ((expense-origin)>budget&&budget>0)
     {
       origin=expense;
-      cout<<"***budget alert：expense achieved "<<budget<<"now***"<<endl;
+      cout<<"***budget alert: expense achieved "<<budget<<"now***"<<endl;
       budget=-1;
 
       origin=expense;
-      fout1.open(name+"-budget.txt");
+      fout1.open(name+"_budget.txt");
       fout1<<budget<<" "<<origin;
       fout1.close();
 
@@ -83,7 +84,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
 
 int main()
 {
-  string name="ada";//test case//
+  string name="ada"; //test case right here//
   budget(name,0);
 
   return 0;

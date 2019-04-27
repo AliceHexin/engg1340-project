@@ -2,7 +2,7 @@
 2011 03 12 -20 food cash
 2011 06 20 119 pocketmoney cash
 2011 04 18 -60 food cash
-2011 05 02 -10 game cash
+2011 05 02 -30 game cash
 2011 03 22 -60 food cash
 2011 03 15 120 salary cash
 2011 03 20 -50 food cash
