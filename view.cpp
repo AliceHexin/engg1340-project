@@ -13,7 +13,7 @@ void view(string name)
   string line;
   std::cout << "/* please choose to view by date/food/game/salary/income/expense */" << '\n';// choose type
   cin >> type;
-  filename=name+"-"+type+".txt";//the filename to open
+  filename=name+"_"+type+".txt";//the filename to open
   ifstream fin;
   ofstream fout;
   fin.open(filename);//open "filename" file
