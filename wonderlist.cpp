@@ -91,10 +91,3 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
 
 }
 
-//int main()//
-//{//
-
-  //string name="ada";//test case//
-  //wonderlist(name,0);//
-  //return 0;//
-//}//
