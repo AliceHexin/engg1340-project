@@ -50,5 +50,7 @@ void add(string username){
 	//write user's deposit account into different accountfiles
 	string account_filename=username+"_"+account+".txt";
 	appendfile(account_filename, date, amount, type, account);
+	cout<<"Your record has been added!"<<endl;
+	cout<<endl;
 }
 

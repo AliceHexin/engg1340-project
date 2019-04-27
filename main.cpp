@@ -80,56 +80,41 @@ int main(){
 	                cout<<endl;
 	                int check=1;
 		            if(command== "add"){
-			                //add(username);
+			                add(username);
 			                check=0;
-			               budget(username,check);
-											cout<<"budg";
-			                wonderlist(username,check);
-			                cout<<"Please input your request: "<<endl;
-			                cin >> command;
-				            break;
+			                budget(username,check);
+			                //wonderlist(username,check)
+				         
 		                }
 		            else if(command=="delete"){
 			                deleted(username);
 			                check=0;
 			                //budget(username,check);
 			                //wonderlist(username,check);
-			                cout<<"Please input your request: "<<endl;
-		    	            cin >> command;
-				            break;
+			                
 	    	            }
 		            else if(command=="edit"){
 			                edit(username);
 			                check=0;
 			                //budget(username,check);
 			                //wonderlist(username,check);
-			                cout<<"Please input your request: "<<endl;
-		    	            cin >> command;
-				            break;
+			                
 		                }
 		            else if(command=="view"){
 		    	            view(username);
-		    	            cout<<"Please input your request: "<<endl;
-		    	            cin >> command;
-				            break;
+		    	            
 		            	}
 		            else if(command=="stat"){
 		    	            stat(username);
-		    	            cout<<"Please input your request: "<<endl;
-		    	            cin >> command;
-				            break;
+		    	            
 		                }
 		            else if(command=="budget"){
 			                budget(username,check);
-			                cout<<"Please input your request: "<<endl;
-		    	            cin >> command;
-				            break;
+			                
 		                }
 		            else if(command=="wonderlist"){
 			                wonderlist(username,check);
-			                cout<<"Please input your request: "<<endl;
-		    	            cin >> command;
-				            break;
+			                
 		                }
 	                }
 	              if(command=="quit"){
