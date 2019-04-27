@@ -32,6 +32,7 @@ int main(){
 		        cout<<endl;
 		        if(i==0){
 		        	cout<<"Hello "<<username<<", your accounting system has been built!"<<endl;
+							cout<<endl;
 		        	userlist[i]=username;
 				}
 				//search through the userlist to check whether the user has already existed
@@ -40,6 +41,7 @@ int main(){
 		        	for(int j=0;j<i;j++){
 		        	    if(userlist[j]==username){
 				            cout<<"Hello "<<username<<", welcome back to your accounting system!"<<endl;
+										cout<<endl;
 				            break;
 			            }
 			            else{
@@ -50,18 +52,20 @@ int main(){
 		            if(tem==i && i<maxuser-1){
 			            userlist[i]=username;
 			            cout<<"Hello "<<username<<", your accounting system has been built!"<<endl;
+									cout<< endl;
 		            }
 		            //show an alert when the userlist will be full
 		            else if(tem==i && i==maxuser-1){
 			            userlist[i]=username;
 			            cout<<"Hello "<<username<<", your accounting system has been built!"<<endl;
 			            cout<<"The accounting system is full! No more new users!"<<endl;
+									cout<<endl;
 	            	}
 	            }
 		        //input user's request
 	            string command="begin";
 	            cout<<"structure:"<<endl;
-	        	cout<<"quit: exit the system"<<endl;
+	        	  cout<<"quit: exit the system"<<endl;
 	            cout<<"add: add your accounting record"<<endl;
 	       	    cout<<"delete: delete your accounting record"<<endl;
 	       	    cout<<"edit: edit your accounting record"<<endl;
@@ -69,15 +73,17 @@ int main(){
 	       	    cout<<"stat: show the summary of your record"<<endl;
 	       	    cout<<"budget: set a budget"<<endl;
 	       	    cout<<"wonderlist: set a target amount of income"<<endl;
+							cout<<endl;
 	            while(command!="quit"){
-	        	    cout<<"Please input your request: "<<endl;
+	        	    cout<<"Please input your request: ";
 	                cin >> command;
 	                cout<<endl;
 	                int check=1;
 		            if(command== "add"){
-			                add(username);
+			                //add(username);
 			                check=0;
-			                budget(username,check);
+			               budget(username,check);
+											cout<<"budg";
 			                wonderlist(username,check);
 			                cout<<"Please input your request: "<<endl;
 			                cin >> command;
@@ -86,8 +92,8 @@ int main(){
 		            else if(command=="delete"){
 			                deleted(username);
 			                check=0;
-			                budget(username,check);
-			                wonderlist(username,check);
+			                //budget(username,check);
+			                //wonderlist(username,check);
 			                cout<<"Please input your request: "<<endl;
 		    	            cin >> command;
 				            break;
@@ -95,8 +101,8 @@ int main(){
 		            else if(command=="edit"){
 			                edit(username);
 			                check=0;
-			                budget(username,check);
-			                wonderlist(username,check);
+			                //budget(username,check);
+			                //wonderlist(username,check);
 			                cout<<"Please input your request: "<<endl;
 		    	            cin >> command;
 				            break;
@@ -126,16 +132,15 @@ int main(){
 				            break;
 		                }
 	                }
-	            }
-	            if(command=="quit"){
-	            	cout<<"Goodbye!"<<endl; 
+	              if(command=="quit"){
+	            	cout<<"Goodbye!"<<endl;
 	            	k=1;
 	            	break;
-				}
-	            i++;	 
+				        }
+	              i++;
 		    }
 			if(k==1)
-			break; 
+			break;
 	    }
 	}
 	return 0;
