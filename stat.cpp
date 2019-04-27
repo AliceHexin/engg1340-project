@@ -102,10 +102,3 @@ void report(string name)
   return;
 
 }
-
-//int main()
-//{
-  //string name="ada";//test case//
-  //report(name);
-  //return 0;
-//}
