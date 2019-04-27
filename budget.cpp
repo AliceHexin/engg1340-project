@@ -15,7 +15,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   double temp;
   int y,m,d;
   ifstream fin;
-  fin.open(name+"-date.txt");//open name+date file
+  fin.open(name+"_date.txt");//open name+date file
   if (fin.fail())
   {
     cout<<"open fail"<<endl;// check if file is opened successfully
@@ -37,7 +37,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   ifstream fin1;
   ofstream fout,fout1;
   double origin=0,budget=0;
-  string filename=name+"-budget.txt";
+  string filename=name+"_budget.txt";
   fin1.open(filename);
   if(fin1.fail())
     exit(1);
@@ -67,11 +67,11 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
     if ((expense-origin)>budget&&budget>0)
     {
       origin=expense;
-      cout<<"***budget alert：expense achieved "<<budget<<"now***"<<endl;
+      cout<<"***budget alert：expense achieved "<<budget<<" now***"<<endl;
       budget=-1;
 
       origin=expense;
-      fout1.open(name+"-budget.txt");
+      fout1.open(name+"_budget.txt");
       fout1<<budget<<" "<<origin;
       fout1.close();
 
@@ -81,10 +81,10 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   return ;//haven satisfied the budget
 }
 
-int main()
-{
-  string name="ada";//test case//
-  budget(name,0);
+//int main()
+//{
+  //string name="ada";//test case//
+  //budget(name,0);
 
-  return 0;
-}
+  //return 0;
+//}
