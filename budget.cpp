@@ -81,10 +81,10 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   return ;//haven satisfied the budget
 }
 
-//int main()
-//{
+//int main()//
+//{//
   //string name="ada";//test case//
-  //budget(name,0);
+  //budget(name,0);//
 
-  //return 0;
-//}
+  //return 0;//
+//}//
