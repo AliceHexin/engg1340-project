@@ -5,7 +5,7 @@
 #include<stdlib.h>
 using namespace std;
 
-
+//send the editted information into files
 void updatefile(string username, string kind, string editting, string editted){
 	string filename=username+"_"+kind+".txt";
 	ifstream efin;
@@ -25,14 +25,59 @@ void updatefile(string username, string kind, string editting, string editted){
     		else
     		efout << editted << endl;
 		}
+		efin.close();
+	    efout.close();
 		//delete old file and rename temporary.txt
-		string file0="rm -rf "+filename;
+		string file0="del "+filename;
 		system(file0.c_str());
-	    string file1="mv temporary.txt "+ filename;
+	    string file1="rename temporary.txt "+ filename;
+	    system(file1.c_str());
+	    
+	}
+}
+
+//delete the information that no longer belong to the file
+void delfile(string username, string kind, string editting){
+	string filename=username+"_"+kind+".txt";
+	ifstream dfin;
+	dfin.open(filename.c_str());
+	ofstream dfout;
+	dfout.open("temporary.txt",ios::app);
+	if (dfin.fail() || dfout.fail())
+    {
+        cout << "Error in delfile opening!" << endl;
+        exit(1);
+    }
+    else{
+    	string line;
+    	while(getline(dfin,line)){
+    		if(editting!=line)
+    		dfout << line <<endl;
+		}
+		dfin.close();
+	    dfout.close();
+		//delete old file and rename temporary.txt
+		string file0="del "+filename;
+		system(file0.c_str()); 
+	    string file1="rename temporary.txt "+ filename;
 	    system(file1.c_str());
 	}
-	efin.close();
-	efout.close();
+}
+
+//transform the editted information into other files
+void tranfile(string username, string kind, string editted){
+	string filename=username+"_"+kind+".txt";
+	ofstream efout;
+	efout.open(filename.c_str());
+	if (efout.fail())
+    {
+        cout << "Error in edit-file opening!" << endl;
+        exit(1);
+    }
+    else{
+    	efout<<editted<<endl;
+    }
+    efout.close();
 }
 
 void edit(string username){
@@ -64,7 +109,7 @@ void edit(string username){
     string old_line=olddate.substr(0,4) + " " + olddate.substr(4,2) +" "+ olddate.substr(6,2)+" "+ oldnumber + " " + oldtype + " " + oldaccount; 
     
 	//find the record and edit if exists
-	string date_filename=username+"_date .txt";
+	string date_filename=username+"_date.txt";
 	string e_line;
 	ifstream findate;
 	findate.open(date_filename.c_str());
@@ -117,13 +162,19 @@ void edit(string username){
 	}
 	//update file
 	if(olddate!=date || oldnumber!= num){
-		updatefile(username, type, old_line, e_line );
-		updatefile(username, account, old_line, e_line );
+		if(oldtype==type)
+		updatefile(username, oldtype, old_line, e_line );
+		if(oldaccount==account)
+		updatefile(username, oldaccount, old_line, e_line );
 	}
 	if(oldtype!=type){
-		updatefile(username, type, old_line, e_line );
+		tranfile(username, type, e_line );
+		delfile(username, oldtype, oldline);
 	}
 	if(oldaccount!=account){
-		updatefile(username, account, old_line, e_line );
+		tranfile(username, account, e_line );
+		delfile(username, oldaccount, oldline);
 	}
+	cout<<"Your record has been editted!"<<endl;
+	cout<<endl;
 }
