@@ -26,9 +26,9 @@ void rebuildfile(string username, string kind, string deleting){
 		dfin.close();
 	    dfout.close();
 		//delete old file and rename temporary.txt
-		string file0="rm -rf "+filename;
+		string file0="del "+filename;
 		system(file0.c_str()); 
-	    string file1="mv temporary.txt "+ filename;
+	    string file1="rename temporary.txt "+ filename;
 	    system(file1.c_str());
 	}
 }
@@ -85,7 +85,7 @@ void deleted(string username){
 		//delete old file and rename temporary.txt
 		string file0="rm -rf "+date_filename;
 		system(file0.c_str()); 
-	    string file1="nv temporary.txt "+date_filename;
+	    string file1="rename temporary.txt "+date_filename;
 	    system(file1.c_str());
 	    rebuildfile(username,type,d_line);
 	    rebuildfile(username,account,d_line);
