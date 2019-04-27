@@ -1,0 +1,19 @@
+sample 1.1(get into the sysyem)
+
+Do you want to enter your accounting system or quit? enter
+
+Please input your name:ma
+
+Hello ma, your accounting system has been built!
+
+structure:
+quit: exit the system
+add: add your accounting record
+delete: delete your accounting record
+edit: edit your accounting record
+view: view your accounting record
+stat: show the summary of your record
+budget: set a budget
+wonderlist: set a target amount of income
+
+Please input your request:
