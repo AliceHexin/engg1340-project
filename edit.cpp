@@ -28,9 +28,9 @@ void updatefile(string username, string kind, string editting, string editted){
 		efin.close();
 	    efout.close();
 		//delete old file and rename temporary.txt
-		string file0="del "+filename;
+		string file0="rm -rf "+filename;
 		system(file0.c_str());
-	    string file1="rename temporary.txt "+ filename;
+	    string file1="mv temporary.txt "+ filename;
 	    system(file1.c_str());
 
 	}
@@ -57,9 +57,9 @@ void delfile(string username, string kind, string editting){
 		dfin.close();
 	    dfout.close();
 		//delete old file and rename temporary.txt
-		string file0="del "+filename;
+		string file0="rm -rf "+filename;
 		system(file0.c_str());
-	    string file1="rename temporary.txt "+ filename;
+	    string file1="mv temporary.txt "+ filename;
 	    system(file1.c_str());
 	}
 }
