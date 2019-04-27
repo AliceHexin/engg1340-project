@@ -56,6 +56,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
     cin>>money;
     fout<<item<<" "<<money<<endl;
     fout.close();
+    return;
   }
 
   else
