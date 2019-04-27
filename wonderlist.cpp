@@ -5,7 +5,11 @@
 #include <cstdio>
 #include <stdio.h>
 using namespace std;
-
+bool checkfile(string filename)
+{
+  std::ifstream ifile(filename.c_str());
+  return (bool)ifile;
+}
 
 // int input==1 will let user input the item and target number of money to file, up to 10 items(indeed could be much more )//
 //int input==0 will check if items' target numbers are satisfied, if yes, print alert, renew file//
@@ -70,7 +74,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
   else
   {
 
-    flag=check_file(filename);//check if file exsited, if not , creat one
+    flag=checkfile(filename);//check if file exsited, if not , creat one
     if(flag==0)
     {
       fout2.open(filename);
