@@ -86,37 +86,37 @@ int main(){
 			                check=0;
 			                budget(username,check);
 			                wonderlist(username,check);
-				         
+
 		                }
 		            else if(command=="delete"){
 			                deleted(username);
 			                check=0;
 			                budget(username,check);
 			                wonderlist(username,check);
-			                
+
 	    	            }
 		            else if(command=="edit"){
 			                edit(username);
 			                check=0;
 			                budget(username,check);
 			                wonderlist(username,check);
-			                
+
 		                }
 		            else if(command=="view"){
 		    	            view(username);
-		    	            
+
 		            	}
 		            else if(command=="stat"){
 		    	            stat(username);
-		    	            
+
 		                }
 		            else if(command=="budget"){
 			                budget(username,check);
-			                
+
 		                }
 		            else if(command=="wonderlist"){
 			                wonderlist(username,check);
-			                
+
 		                }
 	                }
 	              if(command=="quit"){
