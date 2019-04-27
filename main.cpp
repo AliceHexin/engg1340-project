@@ -74,8 +74,7 @@ int main(){
 	                cin >> command;
 	                cout<<endl;
 	                int check=1;
-	                switch(command){
-		                case "add" :{
+		            if(command== "add"){
 			                add(username);
 			                check=0;
 			                budget(username,check);
@@ -84,7 +83,7 @@ int main(){
 			                cin >> command;
 				            break;
 		                }
-		                case "delete":{
+		            else if(command=="delete"){
 			                deleted(username);
 			                check=0;
 			                budget(username,check);
@@ -93,7 +92,7 @@ int main(){
 		    	            cin >> command;
 				            break;
 	    	            }
-		                case "edit":{
+		            else if(command=="edit"){
 			                edit(username);
 			                check=0;
 			                budget(username,check);
@@ -102,25 +101,25 @@ int main(){
 		    	            cin >> command;
 				            break;
 		                }
-		                case "view":{
+		            else if(command=="view"){
 		    	            view(username);
 		    	            cout<<"Please input your request: "<<endl;
 		    	            cin >> command;
 				            break;
 		            	}
-		                case "stat":{
+		            else if(command=="stat"){
 		    	            stat(username);
 		    	            cout<<"Please input your request: "<<endl;
 		    	            cin >> command;
 				            break;
 		                }
-		                case "budget":{
+		            else if(command=="budget"){
 			                budget(username,check);
 			                cout<<"Please input your request: "<<endl;
 		    	            cin >> command;
 				            break;
 		                }
-		                case "wonderlist":{
+		            else if(command=="wonderlist"){
 			                wonderlist(username,check);
 			                cout<<"Please input your request: "<<endl;
 		    	            cin >> command;
