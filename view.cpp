@@ -37,9 +37,3 @@ void view(string name)
   return;
 }
 
-//int main()//
-//{//
-  //string name="ada";//test case//
-  //view(name);//
-  //return 0;//
-//}//
