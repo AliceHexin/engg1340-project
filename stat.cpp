@@ -20,7 +20,7 @@ void report(string name)
   cout<<"please input the month"<<endl;//input the month
   cin>>month;
 
-  fin.open(name+"-date.txt");//open name+date file
+  fin.open(name+"_date.txt");//open name+date file
   if (fin.fail())
   {
     cout<<"open fail"<<endl;// check if file is opened successfully
@@ -54,7 +54,7 @@ void report(string name)
 
   while(type_input!="e")
   {
-    fin1.open(name+"-"+type_input+".txt");//open file
+    fin1.open(name+"_"+type_input+".txt");//open file
     if(fin1.fail())//dectect if file be opened successfully
     {
       cout<<"there is no such type"<<endl;
