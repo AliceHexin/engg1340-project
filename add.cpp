@@ -4,45 +4,51 @@
 using namespace std;
 
 //write different kind of information into files
-void appendfile(string filename, user userlist){
+void appendfile(string filename, string date, double amount, string type, string account){
 	ofstream fout;
 	fout.open(filename,ios::app);
 	if (fout.fail())
     {
-        cout << "Error in ",filename," opening!" << endl;
+        cout<<"Error in ";
+		cout<<filename;
+		cout<<" opening!" << endl;
         exit(1);
     }
     else
-    fout << userlist.date.substr(0,4) << " " << userlist.date.substr(4,2) <<" "<< userlist.date.substr(6,2)<<" "<< userlist.amount << " " << userlist.type << " " << userlist.account<<endl; 
+    fout << date.substr(0,4) << " " << date.substr(4,2) <<" "<< date.substr(6,2)<<" "<< amount << " " << type << " " << account<<endl; 
     fout.close();
 }
 
-void add(user userlist){
+void add(string username){
+    string date;
+    double amount;
+    string type;
+	string account;
 	//read-in the information the user add
 	//add user's date into the datelist
 	cout<<"date: ";
-	cin>>userlist.date;
+	cin>>date;
 	cout<<endl;
 	//add user's deposit amount into amountlist
 	cout<<"amount: ";
-	cin>>userlist.amount;
+	cin>>amount;
 	cout<<endl;
 	//add user's deposit type into typelist
 	cout<<"type: ";
-	cin>>userlist.type;
+	cin>>type;
 	cout<<endl;
 	//add user's deposit account into accountlist
 	cout<<"account: ";
-	cin>>userlist.account;
+	cin>>account;
 	cout<<endl;
 	//write user's deposits into datefile
-	string date_filename=userlist.name+"-date.txt";
-	appendfile(date_filename, userlist[n]);
+	string date_filename=username+"_date.txt";
+	appendfile(date_filename, date, amount, type, account);
 	//write user's deposit type into different typefiles
-	string type_filename=userlist.name+"-"+userlist.type+".txt";
-	appendfile(type_filename, userlist);
+	string type_filename=username+"_"+type+".txt";
+	appendfile(type_filename, date, amount, type, account);
 	//write user's deposit account into different accountfiles
-	string account_filename=userlist.name+"-"+userlist.account+".txt";
-	appendfile(account_filename, userlist);
+	string account_filename=username+"_"+account+".txt";
+	appendfile(account_filename, date, amount, type, account);
 }
 

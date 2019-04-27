@@ -5,12 +5,13 @@
 #include<stdlib.h>
 using namespace std;
 
-void updatefile(user userlist, string kind, string editting, string editted){
-	string filename=userlist.name+"-"+kind+".txt";
+
+void updatefile(string username, string kind, string editting, string editted){
+	string filename=username+"_"+kind+".txt";
 	ifstream efin;
-	efin.open(filename.c_str())
+	efin.open(filename.c_str());
 	ofstream efout;
-	efout.open("temporary.txt",ios::app)
+	efout.open("temporary.txt",ios::app);
 	if (efin.fail() || efout.fail())
     {
         cout << "Error in edit-file opening!" << endl;
@@ -25,16 +26,20 @@ void updatefile(user userlist, string kind, string editting, string editted){
     		efout << editted << endl;
 		}
 		//delete old file and rename temporary.txt
-		string file0="del "+filename;
-		system(file0.c_str());//可以这样？ 
-	    string file1="rename temporary.txt "+ filename;
+		string file0="rm -rf "+filename;
+		system(file0.c_str());
+	    string file1="mv temporary.txt "+ filename;
 	    system(file1.c_str());
 	}
 	efin.close();
 	efout.close();
 }
 
-void edit(user userlist){
+void edit(string username){
+	string date;
+    double amount;
+    string type;
+	string account;
 	//input the record the user want to edit
 	string olddate,oldtype,oldaccount;
 	double oldamount;
@@ -45,9 +50,9 @@ void edit(user userlist){
     cin>>oldamount;
     cout<<endl;
     //change amount string into double type
-    string oldnumber;
+    string oldnumber,num;
     stringstream ss;
-    ss << userlist.amount;
+    ss << oldamount;
     ss >> oldnumber;
     cout<<"The type of the record to be editted: ";
     cin>>oldtype;
@@ -59,11 +64,13 @@ void edit(user userlist){
     string old_line=olddate.substr(0,4) + " " + olddate.substr(4,2) +" "+ olddate.substr(6,2)+" "+ oldnumber + " " + oldtype + " " + oldaccount; 
     
 	//find the record and edit if exists
-	string date_filename=userlist.name+"-date .txt";
+	string date_filename=username+"_date .txt";
+	string e_line;
 	ifstream findate;
-	findate.open(date_filename.c_str())
+	findate.open(date_filename.c_str());
 	ofstream foutdate;
-	foutdate.open("temporary.txt",ios::app)
+	foutdate.open("temporary.txt",ios::app);
+	int tem=0;
 	if (findate.fail() || foutdate.fail())
     {
         cout << "Error in editfile opening!" << endl;
@@ -72,25 +79,23 @@ void edit(user userlist){
     else{
     	//input the editted record
         cout<<"The date of the record editted: ";
-	    cin>>userlist.date;
+	    cin>>date;
 	    cout<<endl;
     	cout<<"The amount of the record editted: ";
-        cin>>userlist.amount;
+        cin>>amount;
         cout<<endl;
-        string num;
         stringstream ss;
-        ss << userlist.amount;
+        ss << amount;
         ss >> num;
         cout<<"The type of the record editted: ";
-        cin>>userlist.type;
+        cin>>type;
         cout<<endl;
         cout<<"The account of the record editted: ";
-        cin>>userlist.account;
+        cin>>account;
         cout<<endl;
-        string e_line=userlist.date.substr(0,4) + " " + userlist.date.substr(4,2) +" "+ userlist.date.substr(6,2)+" "+ num + " " + userlist.type + " " + userlist.account; 
+        e_line=date.substr(0,4) + " " + date.substr(4,2) +" "+ date.substr(6,2)+" "+ num + " " + type + " " + account; 
     
     	string line;
-    	int tem=0;
     	while(getline(findate,line)){
     		if(old_line!=line)
     		foutdate << line <<endl;
@@ -111,14 +116,14 @@ void edit(user userlist){
 	    system(file1.c_str());
 	}
 	//update file
-	if(olddate!=userlist.date || oldnumber!=num){
-		updated(userlist, userlist.type, old_line, e_line );
-		updated(userlist, userlist.account, old_line, e_line );
+	if(olddate!=date || oldnumber!= num){
+		updatefile(username, type, old_line, e_line );
+		updatefile(username, account, old_line, e_line );
 	}
-	if(oldtype!=userlist.type){
-		updated(userlist, userlist.type, old_line, e_line );
+	if(oldtype!=type){
+		updatefile(username, type, old_line, e_line );
 	}
-	if(oldaccount!=userlist.account){
-		updated(userlist, userlist.account, old_line, e_line );
+	if(oldaccount!=account){
+		updatefile(username, account, old_line, e_line );
 	}
 }

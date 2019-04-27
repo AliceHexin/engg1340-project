@@ -81,12 +81,3 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   }
   //haven satisfied the budget
 }
-
-int main()//
-{//
-  string name="ada"; //test case right here//
-  budget(name,0);//
-  cout<<"aaaaaa"<<endl;
-
-  return 0;//
-}//
