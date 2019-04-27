@@ -60,6 +60,7 @@ void stat(string name)
     if(fin1.fail())//dectect if file be opened successfully//
     {
       cout<<"there is no such type"<<endl;
+      cout<<"input the type you would like to know or 'e' to exit"<<endl;
       cin>>type_input;
     }
 
@@ -77,7 +78,7 @@ void stat(string name)
     }
 
     fin1.close();//close file
-    cout<<"amount of "+type_input+"is"<<subamount<<" dollar"<<endl;//show amount of specific type//
+    cout<<"amount of "+type_input+" is "<<subamount<<" dollar"<<endl;//show amount of specific type//
 
     if(subamount==0)
     {
