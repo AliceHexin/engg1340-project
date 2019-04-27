@@ -6,9 +6,15 @@
 #include <stdio.h>
 using namespace std;
 
+bool check_file(string filename)
+{
+  std::ifstream ifile(filename.c_str());
+  return (bool)ifile;
+}
 //int input==1 means user call it by command "budget", user could input 1 budget here, 0 when call function to check if budget is achieved) //
 //int input==0,means this function is just called to check if budget is achieved//
 void budget(string name,int input)//when input==1 when user set budget, otherwise input==0//
+
 {
   string line,type,account;
   string word,a,b,c;
@@ -16,12 +22,8 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   double temp;
   int y,m,d;
   ifstream fin;
-  fin.open(name+"_date.txt");//open name+date file
-  if (fin.fail())
-  {
-    cout<<"open fail"<<endl;// check if file is opened successfully
-    exit(1);
-  }
+  int flag;
+
 
   while(getline(fin, line))//read until the end of file
   {
@@ -36,20 +38,15 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   fin.close();
 
   ifstream fin1;
-  ofstream fout,fout1;
+  ofstream fout,fout1,fout2;
   double origin=0,budget=0;
   string filename=name+"_budget.txt";
-  fin1.open(filename);
-  if(fin1.fail())
-    exit(1);
 
-  fin1>>budget>>origin;
 
   //cout<<origin<<" "<<expense<<" "<<budget<<endl;// print out the amount when budget is seted current amount and budget
 
   if(input==1)//at the begining
   {
-    fin1.close();
     fout.open(filename);
     cout<<"set budget"<<endl;
     cin>>budget;
@@ -62,6 +59,24 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
 
   else
   {
+    flag=check_file(filename);
+    if(flag==0)
+    {
+      fout2.open(filename);
+      if(fout2.fail())
+      {
+        cout<<"fout open fail"<<endl;
+        exit(1);
+      }
+      fout2.close();
+    }
+    fin1.open(filename);
+    if (fin1.fail())
+    {
+      cout<<"open fail fin1"<<endl;
+      exit(1);
+    }
+
     fin1>>budget>>origin;
     fin1.close();
 
@@ -70,7 +85,6 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
       origin=expense;
       cout<<"***budget alert: expense achieved "<<budget<<" now***"<<endl;
       budget=-1;
-
       origin=expense;
       fout1.open(name+"_budget.txt");
       fout1<<budget<<" "<<origin;
@@ -80,4 +94,9 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
 
   }
   //haven satisfied the budget
+}
+int main(){
+  budget("a",0);
+  cout<<"finished"<<endl;
+  return 0;
 }
