@@ -17,57 +17,57 @@ void report(string name)
   int year,month,y,m,d;
   ifstream fin,fin1;
 
-  cout<<">>>please input the year"<<endl;//input the year
+  cout<<">>>please input the year"<<endl;//input the year//
   cin>>year;
-  cout<<">>>please input the month"<<endl;//input the month
+  cout<<">>>please input the month"<<endl;//input the month//
   cin>>month;
 
-  fin.open(name+"_date.txt");//open name+date file
+  fin.open(name+"_date.txt");//open name+date file//
   if (fin.fail())
   {
-    cout<<"open fail"<<endl;// check if file is opened successfully
+    cout<<"open fail"<<endl;// check if file is opened successfully//
     return;
   }
 
-  while(getline(fin, line))//read until the end of file
+  while(getline(fin, line))//read until the end of file//
   {
-    istringstream stream(line);//become string stream
-    stream>>y>>m>>d>>temp>>type>>account;//temp is money
+    istringstream stream(line);//become string stream//
+    stream>>y>>m>>d>>temp>>type>>account;//temp is money//
     if(y==year&&m==month)
     {
 
       if(temp<0)
-        expense+=temp;//calculate expense
+        expense+=temp;//calculate expense//
       if(temp>0)
-        income+=temp;//calculate income
+        income+=temp;//calculate income//
     }
 
   }
   amount=income+expense;
-  cout<<"monthly income="<<income<<endl;//show income
-  cout<<"monthly expense="<<expense<<endl;//expense
-  cout<<"monthly amount="<<amount<<endl;//amount
-  fin.close();//close name-date.txt
+  cout<<"monthly income="<<income<<endl;//show income//
+  cout<<"monthly expense="<<expense<<endl;//expense//
+  cout<<"monthly amount="<<amount<<endl;//amount//
+  fin.close();//close name-date.txt//
 
-  int subamount=0;//use his variable to save amout of different types record
-  string type_input;//save the input type to compare with record's type
+  int subamount=0;//use his variable to save amout of different types record//
+  string type_input;//save the input type to compare with record's type//
   cout<<">>>input the type you would like to know or 'e' to exit"<<endl;
   cin>>type_input;
 
   while(type_input!="e")
   {
-    fin1.open(name+"_"+type_input+".txt");//open file
-    if(fin1.fail())//dectect if file be opened successfully
+    fin1.open(name+"_"+type_input+".txt");//open file//
+    if(fin1.fail())//dectect if file be opened successfully//
     {
       cout<<"there is no such type"<<endl;
       cin>>type_input;
     }
 
-    while(getline(fin1, line))//get all lines in files
+    while(getline(fin1, line))//get all lines in files//
     {
 
-      istringstream stream1(line);//become string stream
-      stream1>>y>>m>>d>>temp>>type>>account;//temp represent the money
+      istringstream stream1(line);//become string stream//
+      stream1>>y>>m>>d>>temp>>type>>account;//temp represent the money//
       if(m==month&&y==year)
       {
             subamount+=temp;
@@ -77,7 +77,7 @@ void report(string name)
     }
 
     fin1.close();//close file
-    cout<<"amount of "+type_input+"is"<<subamount<<" dollar"<<endl;//show amount of specific type
+    cout<<"amount of "+type_input+"is"<<subamount<<" dollar"<<endl;//show amount of specific type//
 
     if(subamount==0)
     {
@@ -104,9 +104,9 @@ void report(string name)
 
 }
 
-//int main()
-//{
+//int main()//
+//{//
   //string name="ada";//test case//
-  //report(name);
-  //return 0;
+  //report(name);//
+  //return 0;//
 //}

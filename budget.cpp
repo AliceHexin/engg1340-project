@@ -8,7 +8,7 @@ using namespace std;
 
 //int input==1 means user call it by command "budget", user could input 1 budget here, 0 when call function to check if budget is achieved) //
 //int input==0,means this function is just called to check if budget is achieved//
-void budget(string name,int input)//when input==1 when user set budget, otherwise input==0
+void budget(string name,int input)//when input==1 when user set budget, otherwise input==0//
 {
   string line,type,account;
   string word,a,b,c;
@@ -82,10 +82,10 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   return ;//haven satisfied the budget
 }
 
-//int main()
-//{
+//int main()//
+//{//
   //string name="ada"; //test case right here//
-  //budget(name,0);
+  //budget(name,0);//
 
-//  return 0;
-//}
+//  return 0;//
+//}//
