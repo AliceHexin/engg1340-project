@@ -3,6 +3,7 @@
 #include<fstream>
 #include<sstream>
 #include<stdlib.h>
+
 using namespace std;
 
 //send the editted information into files
@@ -32,7 +33,7 @@ void updatefile(string username, string kind, string editting, string editted){
 		system(file0.c_str());
 	    string file1="mv temporary.txt "+ filename;
 	    system(file1.c_str());
-	    
+
 	}
 }
 
@@ -57,9 +58,9 @@ void delfile(string username, string kind, string editting){
 		dfin.close();
 	    dfout.close();
 		//delete old file and rename temporary.txt
-		string file0="del "+filename;
-		system(file0.c_str()); 
-	    string file1="rename temporary.txt "+ filename;
+		string file0="rm -rf "+filename;
+		system(file0.c_str());
+	    string file1="mv temporary.txt "+ filename;
 	    system(file1.c_str());
 	}
 }
@@ -105,9 +106,9 @@ void edit(string username){
     cout<<"The account of the record to be editted: ";
     cin>>oldaccount;
     cout<<endl;
-    
-    string old_line=olddate.substr(0,4) + " " + olddate.substr(4,2) +" "+ olddate.substr(6,2)+" "+ oldnumber + " " + oldtype + " " + oldaccount; 
-    
+
+    string old_line=olddate.substr(0,4) + " " + olddate.substr(4,2) +" "+ olddate.substr(6,2)+" "+ oldnumber + " " + oldtype + " " + oldaccount;
+
 	//find the record and edit if exists
 	string date_filename=username+"_date.txt";
 	string e_line;
@@ -138,8 +139,8 @@ void edit(string username){
         cout<<"The account of the record editted: ";
         cin>>account;
         cout<<endl;
-        e_line=date.substr(0,4) + " " + date.substr(4,2) +" "+ date.substr(6,2)+" "+ num + " " + type + " " + account; 
-    
+        e_line=date.substr(0,4) + " " + date.substr(4,2) +" "+ date.substr(6,2)+" "+ num + " " + type + " " + account;
+
     	string line;
     	while(getline(findate,line)){
     		if(old_line!=line)
@@ -147,7 +148,7 @@ void edit(string username){
     		else{
     			tem=1;
     			foutdate << e_line << endl;
-			}	
+			}
 		}
 	}
 	findate.close();
