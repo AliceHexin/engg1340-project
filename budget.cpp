@@ -83,7 +83,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
     fin1.close();
 
 
-    if ((expense-origin)>budget&&budget>0)
+    if ((expense-origin)>budget&&budget>0)//budget is achieved
     {
       cout<<"***budget alert: expense achieved "<<budget<<" now***"<<endl;
       budget=-1;
