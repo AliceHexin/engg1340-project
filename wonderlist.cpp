@@ -61,10 +61,10 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
   {
 
     fout.open(filename,ios::app);
-    cout<<"set an target in your wonderlist. ";
-    cout<<endl;
+    cout<<"set item"<<endl;
+    cout<<amount<<endl;
     cin>>item;
-    cout<<"set the amount. ";
+    cout<<"set amount"<<endl;
     cin>>money;
     fout<<item<<" "<<money<<endl;
     fout.close();
@@ -101,18 +101,17 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
       if(amount-original>money&&money>0)//when target is achieved
       {
         cout<<"***wonderlist: "+item+" is now available!***"<<endl;
-        cout<<endl;
       }
       else
       {
-        fout2<<item<<" "<<money<<" "<<original<<endl;//send to temporary.txt
+        fout2<<item<<" "<<money<<" "<<original<<endl;
       }
     }
 
     fin1.close();
     fout2.close();
-    remove( filename.c_str() );//delete original file
-    rename("temporary.txt",filename.c_str());//rename temporaray file as the original one
+    remove( filename.c_str() );
+    rename("temporary.txt",filename.c_str());
   }
   return;
 }
