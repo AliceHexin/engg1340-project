@@ -19,8 +19,10 @@ int main(){
 		string choice;
 		cin >> choice;
 		cout << endl;
-		if(choice=="quit")
-		break;
+		if(choice=="quit"){
+			cout<<"Goodbye!"<<endl;
+			break;
+		}
 		else if(choice=="enter"){
 			int k=0;
 			while(i<maxuser){
@@ -118,14 +120,13 @@ int main(){
 		                }
 	                }
 	              if(command=="quit"){
-	            	cout<<"Goodbye!"<<endl;
 	            	k=1;
 	            	break;
 				        }
 	              i++;
+	              if(k==1)
+			      break;
 		    }
-			if(k==1)
-			break;
 	    }
 	}
 	return 0;
