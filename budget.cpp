@@ -95,8 +95,3 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   }
   //haven satisfied the budget
 }
-int main(){
-  budget("a",0);
-  cout<<"finished"<<endl;
-  return 0;
-}
