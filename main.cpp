@@ -4,10 +4,10 @@
 #include"add.cpp"
 #include"deleted.cpp"
 #include"edit.cpp"
-//#include"view.cpp"
-//#include"stat.cpp"
-//#include"budget.cpp"
-//#include"wonderlist.cpp"
+#include"view.cpp"
+#include"stat.cpp"
+#include"budget.cpp"
+#include"wonderlist.cpp"
 using namespace std;
 const int maxuser=100; //The largest number of users
 
