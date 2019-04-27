@@ -169,11 +169,11 @@ void edit(string username){
 	}
 	if(oldtype!=type){
 		tranfile(username, type, e_line );
-		delfile(username, oldtype, oldline);
+		delfile(username, oldtype, old_line);
 	}
 	if(oldaccount!=account){
 		tranfile(username, account, e_line );
-		delfile(username, oldaccount, oldline);
+		delfile(username, oldaccount, old_line);
 	}
 	cout<<"Your record has been editted!"<<endl;
 	cout<<endl;
