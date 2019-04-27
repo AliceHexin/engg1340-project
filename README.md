@@ -15,7 +15,7 @@ In this project, we would like to design an accounting system to help people man
 
 7. "Wonderlist" function: users could set a target amount of deposit and clarify the aim of it (e.g. $10000 for an overseas trip), when the deposit reaches the target number, there would be a notice.
 
-# guide:
+# user guide:
 
 ## 1.1 get into the system
 
@@ -43,7 +43,6 @@ wonderlist: set a target amount of income
 
 Please input your request:  
 ```
-## 1.2 exit the system
 
 ## 2.1 add record
 
@@ -57,6 +56,8 @@ enter records in chronological order.
 when entering amount, the amount of expense should be negative(e.g.: -100),only number is allowed .
 when entering the date, try to fill the blank with 0 instead of space(e.g. 20110304),only number is allowed.
 when entering type and account please make sure your input is correct in Capitalization.
+all recrd in one type should be eighter negative or positive, (e.g when you have inputed  "20121212 -100 food  cash" do not input "20121112 20 food cash")
+
 
 sample：
 
@@ -151,5 +152,12 @@ input command "wonderlist" to add item and target amount of deposit , you could 
 
 
 # 3 exit system from menu
+input command "quit" twice would exit the system. 
 
+```
+Please input your request: quit
 
+Do you want to enter your accounting system or quit? quit
+
+Goodbye!
+```
