@@ -61,6 +61,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
 
   else
   {
+
     flag=check_file(filename);
     if(flag==0)
     {
@@ -82,7 +83,8 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
 
     fin1>>budget>>origin;
     fin1.close();
-    cout<<expense<<" "<<origin<<endl;
+
+    cout<<"expense="<<expense<<" origin="<<origin<<" budget="<<budget<<endl;//show origion and budget
 
     if ((expense-origin)>budget&&budget>0)
     {

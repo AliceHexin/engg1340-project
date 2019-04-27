@@ -6,6 +6,7 @@
 #include <stdio.h>
 using namespace std;
 
+
 // int input==1 will let user input the item and target number of money to file, up to 10 items(indeed could be much more )//
 //int input==0 will check if items' target numbers are satisfied, if yes, print alert, renew file//
 void wonderlist(string name,int input)//when input==1 means user insert wonder item
@@ -44,6 +45,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
   double origin=0,money=0;
   string filename=name+"_wonderlist.txt";
   string item="";
+  int flag;
 
 
 
@@ -62,6 +64,18 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
 
   else
   {
+
+    flag=check_file(filename);
+    if(flag==0)
+    {
+      fout2.open(filename);
+      if(fout2.fail())
+      {
+        cout<<"fout open fail"<<endl;
+        exit(1);
+      }
+      fout2.close();
+    }
     fin1.open(filename);
     if(fin1.fail())
     {

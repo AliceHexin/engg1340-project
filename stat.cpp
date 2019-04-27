@@ -26,7 +26,7 @@ void stat(string name)
   if (fin.fail())
   {
     cout<<"open fail"<<endl;// check if file is opened successfully//
-    return;
+
   }
 
   while(getline(fin, line))//read until the end of file//
@@ -100,13 +100,6 @@ void stat(string name)
     cout<<">>>input the type you would like to know or 'e' to exit"<<endl;
     cin>>type_input;
   }
-  return;
+
 
 }
-
-//int main()//
-//{//
-  //string name="ada";//test case//
-  //report(name);//
-  //return 0;//
-//}
