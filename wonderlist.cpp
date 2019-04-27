@@ -17,7 +17,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
   int year,month,y,m,d;
   ifstream fin;
 
-  fin.open(name+"-date.txt");//open name+date file
+  fin.open(name+"_date.txt");//open name+date file
   if (fin.fail())
   {
     cout<<"open fail"<<endl;// check if file is opened successfully
@@ -41,7 +41,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
   ifstream fin1;
   ofstream fout,fout1,fout2;
   double origin=0,money=0;
-  string filename=name+"-wonderlist.txt";
+  string filename=name+"_wonderlist.txt";
   string item="";
 
 
@@ -91,10 +91,10 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
 
 }
 
-int main()
-{
+//int main()
+//{
 
-  string name="ada";//test case//
-  wonderlist(name,0);
-  return 0;
-}
+  //string name="ada";//test case//
+  //wonderlist(name,0);
+  //return 0;
+//}
