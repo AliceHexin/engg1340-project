@@ -125,13 +125,15 @@ Your record has been editted!
 ```
 
 ## 2.4 set budget
-
+input command "budget" to set budget, when budget is achieved , you will receive a message like
+(***budget alert: expense achieved xxx now***). 
 budget would be saved in file yournmae_budget.txt(e.g. ma_yourname.txt).
 when add/delete/edit records, budget.cpp would be check if the difference of current expence is larger than budget, if yes, you will receive an alert. 
 
 **reminder**
 you could set 1 budget once, setting new budget will cover the origina one.
 
+sample:
 ```
 Please input your request: budget
 
@@ -161,7 +163,7 @@ when target amount is achieved, you will received a message to notice you item i
 do not set the items with the same name.
 
 # 3 exit system from menu
-input command "quit" twice would exit the system. 
+input command "quit" twice would exit the system, or input "enter" before you input a "quit" to go back to menu.
 
 ```
 Please input your request: quit
