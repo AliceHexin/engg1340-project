@@ -35,7 +35,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
     if(temp>0)
       income+=temp;//calculate income
   }
-  cout<<expense<<endl;
+
   fin.close();
 
 
@@ -45,7 +45,6 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   string filename=name+"_budget.txt";
 
 
-  //cout<<origin<<" "<<expense<<" "<<budget<<endl;// print out the amount when budget is seted current amount and budget
 
   if(input==1)//at the begining
   {
@@ -84,7 +83,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
     fin1>>budget>>origin;
     fin1.close();
 
-    cout<<"expense="<<expense<<" origin="<<origin<<" budget="<<budget<<endl;//show origion and budget
+    //cout<<"expense="<<expense<<" origin="<<origin<<" budget="<<budget<<endl;//show origion and budget
 
     if ((expense-origin)>budget&&budget>0)
     {

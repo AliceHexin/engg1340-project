@@ -6,7 +6,11 @@
 #include <stdio.h>
 using namespace std;
 
-
+bool check_file(string filename)
+{
+  std::ifstream ifile(filename.c_str());
+  return (bool)ifile;
+}
 // int input==1 will let user input the item and target number of money to file, up to 10 items(indeed could be much more )//
 //int input==0 will check if items' target numbers are satisfied, if yes, print alert, renew file//
 void wonderlist(string name,int input)//when input==1 means user insert wonder item
@@ -16,8 +20,10 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
   double amount;
   double income=0,expense=0;
   double temp;
-  int year,month,y,m,d;
+  double original=0;
+  int y,m,d;
   ifstream fin;
+
 
   fin.open(name+"_date.txt");//open name+date file
   if (fin.fail())
@@ -42,10 +48,12 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
 
   ifstream fin1;
   ofstream fout,fout1,fout2;
-  double origin=0,money=0;
+  double money=0;
   string filename=name+"_wonderlist.txt";
   string item="";
   int flag;
+
+
 
 
 
@@ -54,6 +62,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
 
     fout.open(filename,ios::app);
     cout<<"set item"<<endl;
+    cout<<amount<<endl;
     cin>>item;
     cout<<"set amount"<<endl;
     cin>>money;
@@ -65,7 +74,7 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
   else
   {
 
-    flag=check_file(filename);
+    flag=check_file(filename);//check if file exsited, if not , creat one
     if(flag==0)
     {
       fout2.open(filename);
@@ -76,26 +85,26 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
       }
       fout2.close();
     }
-    fin1.open(filename);
+
+    fin1.open(filename);//open file name_wonderlist.txt
     if(fin1.fail())
     {
       cout<<"open fail"<<endl;
       exit(1);
     }
 
-
     fout2.open("temporary.txt",ios::app);//creat a new file to save records
-    while(fin1>>item>>money)
+
+    while(fin1>>item>>money>>original)
     {
-      //cout<<item<<" "<<money<<endl;//show item and money
-      if(amount>money)//when target is achieved
+
+      if(amount-original>money&&money>0)//when target is achieved
       {
-        //cout<<amount<<endl;
         cout<<"***wonderlist: "+item+" is now available!***"<<endl;
       }
       else
       {
-        fout2<<item<<" "<<money<<endl;
+        fout2<<item<<" "<<money<<" "<<original<<endl;
       }
     }
 
