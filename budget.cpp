@@ -24,7 +24,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   ifstream fin;
   int flag;
 
-
+  fin.open(name+"_date.txt");
   while(getline(fin, line))//read until the end of file
   {
     istringstream stream(line);//become string stream
@@ -35,7 +35,9 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
     if(temp>0)
       income+=temp;//calculate income
   }
+  cout<<expense<<endl;
   fin.close();
+
 
   ifstream fin1;
   ofstream fout,fout1,fout2;
@@ -70,6 +72,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
       }
       fout2.close();
     }
+
     fin1.open(filename);
     if (fin1.fail())
     {
@@ -79,6 +82,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
 
     fin1>>budget>>origin;
     fin1.close();
+    cout<<expense<<" "<<origin<<endl;
 
     if ((expense-origin)>budget&&budget>0)
     {
