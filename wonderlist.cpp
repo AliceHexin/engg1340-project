@@ -4,11 +4,11 @@
 #include <sstream>
 #include <cstdio>
 #include <stdio.h>
+
 using namespace std;
-bool checkfile(string filename)
-{
-  std::ifstream ifile(filename.c_str());
-  return (bool)ifile;
+bool checkfile(string filename){
+ std::ifstream ifile(filename.c_str());
+ return (bool)ifile;
 }
 
 // int input==1 will let user input the item and target number of money to file, up to 10 items(indeed could be much more )//
@@ -61,10 +61,10 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
   {
 
     fout.open(filename,ios::app);
-    cout<<"set item"<<endl;
-    cout<<amount<<endl;
+    cout<<"set an target in your wonderlist. ";
+    cout<<endl;
     cin>>item;
-    cout<<"set amount"<<endl;
+    cout<<"set the amount. ";
     cin>>money;
     fout<<item<<" "<<money<<endl;
     fout.close();
@@ -101,17 +101,18 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
       if(amount-original>money&&money>0)//when target is achieved
       {
         cout<<"***wonderlist: "+item+" is now available!***"<<endl;
+        cout<<endl;
       }
       else
       {
-        fout2<<item<<" "<<money<<" "<<original<<endl;
+        fout2<<item<<" "<<money<<" "<<original<<endl;//send to temporary.txt
       }
     }
 
     fin1.close();
     fout2.close();
-    remove( filename.c_str() );
-    rename("temporary.txt",filename.c_str());
+    remove( filename.c_str() );//delete original file
+    rename("temporary.txt",filename.c_str());//rename temporaray file as the original one
   }
   return;
 }
