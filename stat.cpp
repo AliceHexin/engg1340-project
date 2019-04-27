@@ -103,9 +103,9 @@ void report(string name)
 
 }
 
-int main()
-{
-  string name="ada";//test case//
-  report(name);
-  return 0;
-}
+//int main()
+//{
+  //string name="ada";//test case//
+  //report(name);
+  //return 0;
+//}
