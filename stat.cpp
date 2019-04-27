@@ -77,7 +77,7 @@ void report(string name)
     }
 
     fin1.close();//close file
-    if(check==0)
+    if(check==0||subamount==0)
     {
       cout<<"no such type record in this month"<<endl;
     }
