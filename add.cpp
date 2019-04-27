@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include<fstream>
+
 using namespace std;
 
 //write different kind of information into files
@@ -53,4 +54,5 @@ void add(string username){
 	cout<<"Your record has been added!"<<endl;
 	cout<<endl;
 }
+
 
