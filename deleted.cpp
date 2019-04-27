@@ -23,14 +23,14 @@ void rebuildfile(string username, string kind, string deleting){
     		if(deleting!=line)
     		dfout << line <<endl;
 		}
+		dfin.close();
+	    dfout.close();
 		//delete old file and rename temporary.txt
 		string file0="del "+filename;
-		system(file0.c_str());//可以这样？ 
+		system(file0.c_str()); 
 	    string file1="rename temporary.txt "+ filename;
 	    system(file1.c_str());
 	}
-	dfin.close();
-	dfout.close();
 }
 
 void deleted(string username){
@@ -56,8 +56,8 @@ void deleted(string username){
     cin>>account;
     cout<<endl;
     string d_line=date.substr(0,4) + " " + date.substr(4,2) +" "+ date.substr(6,2)+" "+ number + " " + type + " " + account; 
-    
-	string date_filename=username+"_date.txt";//可以这样识别？ 
+    //update the datefile
+	string date_filename=username+"_date.txt";
 	ifstream findate;
 	findate.open(date_filename.c_str());
 	ofstream foutdate;
@@ -85,10 +85,12 @@ void deleted(string username){
 		//delete old file and rename temporary.txt
 		string file0="rm -rf "+date_filename;
 		system(file0.c_str()); 
-	    string file1="mv temporary.txt "+date_filename;
+	    string file1="rename temporary.txt "+date_filename;
 	    system(file1.c_str());
 	    rebuildfile(username,type,d_line);
 	    rebuildfile(username,account,d_line);
+	    cout<<"Your record has been deleted!"<<endl;
+	    cout<<endl;
 	}
 }
 	
