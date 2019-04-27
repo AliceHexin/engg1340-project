@@ -88,6 +88,6 @@ void wonderlist(string name,int input)//when input==1 means user insert wonder i
     remove( filename.c_str() );
     rename("temporary.txt",filename.c_str());
   }
-
+  return;
 }
 
