@@ -68,7 +68,7 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
     if ((expense-origin)>budget&&budget>0)
     {
       origin=expense;
-      cout<<"***budget alert: expense achieved "<<budget<<"now***"<<endl;
+      cout<<"***budget alert: expense achieved "<<budget<<" now***"<<endl;
       budget=-1;
 
       origin=expense;
@@ -82,10 +82,10 @@ void budget(string name,int input)//when input==1 when user set budget, otherwis
   return ;//haven satisfied the budget
 }
 
-int main()
-{
-  string name="ada"; //test case right here//
-  budget(name,0);
+//int main()
+//{
+  //string name="ada"; //test case right here//
+  //budget(name,0);
 
-  return 0;
-}
+//  return 0;
+//}

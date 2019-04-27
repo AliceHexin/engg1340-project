@@ -17,9 +17,9 @@ void report(string name)
   int year,month,y,m,d;
   ifstream fin,fin1;
 
-  cout<<"please input the year"<<endl;//input the year
+  cout<<">>>please input the year"<<endl;//input the year
   cin>>year;
-  cout<<"please input the month"<<endl;//input the month
+  cout<<">>>please input the month"<<endl;//input the month
   cin>>month;
 
   fin.open(name+"_date.txt");//open name+date file
@@ -49,7 +49,7 @@ void report(string name)
   cout<<"monthly amount="<<amount<<endl;//amount
   fin.close();//close name-date.txt
 
-  int subamount=0;//use his variable to save amount of different types record
+  int subamount=0;//use his variable to save amout of different types record
   string type_input;//save the input type to compare with record's type
   cout<<">>>input the type you would like to know or 'e' to exit"<<endl;
   cin>>type_input;
@@ -66,26 +66,24 @@ void report(string name)
     while(getline(fin1, line))//get all lines in files
     {
 
-      int check=0;
       istringstream stream1(line);//become string stream
       stream1>>y>>m>>d>>temp>>type>>account;//temp represent the money
-      if(m==month&&y==year&&type_input==type)
+      if(m==month&&y==year)
       {
-        check=1;
-        subamount+=temp;
+            subamount+=temp;
       }
       stream1.str("");
       stream1.clear();
     }
 
     fin1.close();//close file
+    cout<<"amount of "+type_input+"is"<<subamount<<" dollar"<<endl;//show amount of specific type
+
     if(subamount==0)
     {
-      cout<<"no such type record in this month"<<endl;
+      cout<<"no such type record this month"<<endl;
     }
-    else
-      cout<<"amount of "+type_input+" is "<<subamount<<" dollar"<<endl;//show amount of specific type
-//可分成expense 和income？下面部分相同，分别
+
     if (subamount>0)
     {
 
@@ -106,9 +104,9 @@ void report(string name)
 
 }
 
-int main()
-{
-  string name="ada";//test case//
-  report(name);
-  return 0;
-}
+//int main()
+//{
+  //string name="ada";//test case//
+  //report(name);
+  //return 0;
+//}
